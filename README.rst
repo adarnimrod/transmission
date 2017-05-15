@@ -1,12 +1,12 @@
-Example
-#######
+Transmission
+############
 
-.. image:: https://travis-ci.org/adarnimrod/example.svg?branch=master
-    :target: https://travis-ci.org/adarnimrod/example
+.. image:: https://travis-ci.org/adarnimrod/transmission.svg?branch=master
+    :target: https://travis-ci.org/adarnimrod/transmission
 
-An (empty) example Ansible role complete with working tests out of the box. For
-more information read the `blog post
-<https://www.shore.co.il/blog/ansible-example-role/>`_.
+Provision the `Transmission <https://transmissionbt.com/>`_ BitTorrent client as
+a headless web server. Also, optionally provision the `transmission-rss
+<https://github.com/nning/transmission-rss>`_ service.
 
 Requirements
 ------------
@@ -34,6 +34,7 @@ Testing
 Testing requires Python 2.7, Tox, Vagrant and Virtualbox. To test simply run
 :code:`tox`. `Pre-commit <http://pre-commit.com/>`_ is also setup for this
 project.
+
 
 License
 -------
