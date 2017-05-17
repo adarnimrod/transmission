@@ -20,3 +20,6 @@
 - hosts: all
   roles:
     - role: transmission
+      transmission_rss_config:
+          feeds:
+          seen_file: ~/.config/transmission/seen

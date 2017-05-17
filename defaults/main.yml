@@ -1,2 +1,4 @@
 ---
 # defaults file for transmission
+
+transmission_rss_version: '0.2.4'

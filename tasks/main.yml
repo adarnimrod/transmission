@@ -6,3 +6,19 @@
     that:
         - ansible_pkg_mgr == 'apt'
         - ansible_service_mgr == 'systemd'
+
+- name: APT install
+  apt:
+      name: transmission-daemon
+      state: present
+      update_cache: True
+      cache_valid_time: 3600
+
+- name: Enable service
+  service:
+      name: transmission-daemon
+      state: started
+      enabled: True
+
+- include: transmission-rss.yml
+  when: transmission_rss_config is defined

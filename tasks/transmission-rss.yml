@@ -1,0 +1,37 @@
+---
+# tasks file for transmission-rss
+
+- name: APT install transmission-rss pre-requisites
+  apt:
+      name: ruby-rb-inotify
+      state: present
+      update_cache: True
+      cache_valid_time: 3600
+
+- name: Gem install transmission-rss
+  gem:
+      name: transmission-rss
+      version: '{{ transmission_rss_version }}'
+      state: present
+
+- name: Configure transmission-rss
+  copy:
+      content: '{{ transmission_rss_config|to_nice_yaml }}'
+      dest: /etc/transmission-rss.conf
+      owner: root
+      group: root
+      mode: 0o0644
+
+- name: Add transmission-rss service
+  template:
+      src: transmission-rss.service.j2
+      dest: /etc/systemd/system/transmission-rss.service
+      owner: root
+      group: root
+      mode: 0o0644
+
+- name: Enable transmission-rss service
+  service:
+      name: transmission-rss
+      state: started
+      enabled: True
